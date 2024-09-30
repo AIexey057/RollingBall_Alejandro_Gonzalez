@@ -6,7 +6,7 @@ public class RotacionSexy : MonoBehaviour
 {
     float timer = 0f;
     [SerializeField] Vector3 rotacionSensual;
-   
+    [SerializeField] Vector3 MovimientoSensual;
     [SerializeField] float velocidad;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,18 @@ public class RotacionSexy : MonoBehaviour
     {
         transform.Rotate(rotacionSensual * velocidad * Time.deltaTime, Space.World);
 
+        timer = timer + 1 * Time.deltaTime;
 
+        if (timer <= 1)
+        {
+            transform.Translate(MovimientoSensual * velocidad * Time.deltaTime, Space.World);
+
+        }
+        else
+        {
+            MovimientoSensual = MovimientoSensual * -1;
+            timer = 0;
+            Debug.Log("Hola");
+        }
     }
 }
