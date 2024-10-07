@@ -30,7 +30,7 @@ public class RotacionSexy : MonoBehaviour
         {
             MovimientoSensual = MovimientoSensual * -1;
             timer = 0;
-            Debug.Log("Hola");
+            
         }
     }
 }

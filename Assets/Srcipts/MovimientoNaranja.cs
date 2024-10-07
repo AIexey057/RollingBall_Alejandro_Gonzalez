@@ -27,7 +27,7 @@ public class MovimientoNaranja : MonoBehaviour
         {
             MovimientoMandarina = MovimientoMandarina * -1;
             timer = 0;
-            Debug.Log("Hola");
+         
         }
         
         
