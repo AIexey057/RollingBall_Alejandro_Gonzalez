@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Boloncho : MonoBehaviour
@@ -9,7 +10,9 @@ public class Boloncho : MonoBehaviour
     [SerializeField]float velocidad;
     [SerializeField] float velocidadMovimiento;
     private float h, v;
-    int vida = 100;
+    private int vida = 100;
+    private int puntuacion;
+    [SerializeField]TMP_Text textoPuntuacion;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,21 +35,23 @@ public class Boloncho : MonoBehaviour
         rb.AddForce(new Vector3(h, 0, v).normalized * velocidadMovimiento, ForceMode.Force);
     }
 
-    void Vida()
-    {
-        if(vida <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
+   
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Coleccionable"))
         {
             vida -= 10;
+            if (vida <= 0)
+            {
+                Destroy(gameObject);
+                Debug.Log("Has Muerto ");
+            }
+            puntuacion += 10;
+            textoPuntuacion.SetText("Score: " + puntuacion);
             Destroy(other.gameObject);           
             Debug.Log(vida);
         }
+
     }
 
 }
