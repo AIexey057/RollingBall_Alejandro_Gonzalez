@@ -16,6 +16,8 @@ public class Boloncho : MonoBehaviour
     [SerializeField]TMP_Text textoPuntuacion;
     [SerializeField] float detectarSuelo;
     [SerializeField] LayerMask queEsSuelo;
+    [SerializeField] AudioClip sonidoMoneda;
+    [SerializeField] AudioManager manager;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +63,7 @@ public class Boloncho : MonoBehaviour
             }
             puntuacion += 10;
             textoPuntuacion.SetText("Score: " + puntuacion);
+            manager.ReproducirSonido(sonidoMoneda);
             Destroy(other.gameObject);           
             Debug.Log(vida);
         }
