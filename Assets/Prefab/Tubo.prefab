@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3642686164291176170}
   - component: {fileID: 5153722206866988480}
+  - component: {fileID: 8603344200909576220}
   - component: {fileID: 7321803379432400293}
   - component: {fileID: 6964053788587699343}
+  - component: {fileID: -8455319289168596391}
   m_Layer: 0
   m_Name: Tubo
   m_TagString: Untagged
@@ -42,6 +44,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3406358270591147544}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &8603344200909576220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3406358270591147544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7218e0ed524f37478a9ad6808f18e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direccionR: {x: 0, y: 2, z: 0}
 --- !u!23 &7321803379432400293
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -107,3 +122,30 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!54 &-8455319289168596391
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3406358270591147544}
+  serializedVersion: 4
+  m_Mass: 1e+9
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 110
+  m_CollisionDetection: 0
