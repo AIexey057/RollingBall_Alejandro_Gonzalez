@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Boloncho : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class Boloncho : MonoBehaviour
     [SerializeField]float velocidad;
     [SerializeField] float velocidadMovimiento;
     private float h, v;
-    private int vida = 100;
+    private int vida = 10;
     private int puntuacion;
     [SerializeField]TMP_Text textoPuntuacion;
     [SerializeField] float detectarSuelo;
@@ -55,17 +56,22 @@ public class Boloncho : MonoBehaviour
     {
         if (other.CompareTag("Coleccionable"))
         {
-            vida -= 10;
-            if (vida <= 0)
-            {
-                Destroy(gameObject);
-                Debug.Log("Has Muerto ");
-            }
+           
             puntuacion += 10;
             textoPuntuacion.SetText("Score: " + puntuacion);
             manager.ReproducirSonido(sonidoMoneda);
             Destroy(other.gameObject);           
             Debug.Log(vida);
+        }
+        else if (other.CompareTag("Trampa"))
+        {
+            vida -= 10;
+            if (vida <= 0)
+            {
+                Destroy(gameObject);
+                Debug.Log("Has Muerto ");
+                SceneManager.LoadScene(2);
+            }
         }
 
         
