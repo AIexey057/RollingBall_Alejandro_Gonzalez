@@ -68,9 +68,8 @@ public class Boloncho : MonoBehaviour
             vida -= 10;
             if (vida <= 0)
             {
+                StartCoroutine(HandleDeath());
                 Destroy(gameObject);
-                Debug.Log("Has Muerto ");
-                SceneManager.LoadScene(2);
             }
         }
 
@@ -83,11 +82,17 @@ public class Boloncho : MonoBehaviour
             vida -= 10;
             if (vida <= 0)
             {
+                StartCoroutine(HandleDeath());
                 Destroy(gameObject);
-                Debug.Log("Has Muerto ");
-                SceneManager.LoadScene(2);
             }
         }
+    }
+
+    private IEnumerator HandleDeath()
+    {
+        Debug.Log("Has Muerto");
+        yield return new WaitForSeconds(1.5f);  // Lo busque de un tutorial
+        SceneManager.LoadScene(2);
     }
 
 
