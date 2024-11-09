@@ -76,6 +76,19 @@ public class Boloncho : MonoBehaviour
 
         
     }
-   
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Trampa"))
+        {
+            vida -= 10;
+            if (vida <= 0)
+            {
+                Destroy(gameObject);
+                Debug.Log("Has Muerto ");
+                SceneManager.LoadScene(2);
+            }
+        }
+    }
+
 
 }
