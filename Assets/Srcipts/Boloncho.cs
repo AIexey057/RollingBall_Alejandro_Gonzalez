@@ -73,8 +73,17 @@ public class Boloncho : MonoBehaviour
                 SceneManager.LoadScene(2);
             }
         }
+        else if (other.CompareTag("Win"))
+        {
+            
+            {
+                Destroy(gameObject);
+                
+                SceneManager.LoadScene(3);
+            }
+        }
 
-        
+
     }
     private void OnCollisionEnter(Collision other)
     {
